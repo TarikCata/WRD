@@ -1,0 +1,123 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,body{
+  width: 100%;
+  height: 100%;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.5;
+  text-size-adjust: 100%;
+  font-size: 16px;
+}
+#buttonSend{cursor: pointer;}
+h3 {
+  padding: 8px 16px;
+  font-size: 24px;
+}
+
+h1 {
+  margin: 10px 0;
+  font-size: 64px;
+  font-weight: 500;
+}
+h2 {
+  font-size: 48px;
+  color: #f44336;
+  font-weight: 500;
+}
+h3 {
+  font-weight: 400;
+  padding: 0;
+  margin: 0;
+}
+hr {
+  width: 50px;
+  border: 5px solid red;
+  border-radius: 4px;
+  margin-left: 0;
+}
+#prvi{padding: 4%;font-size: x-large;}
+#nav{
+  width: 20%;
+  height: 100%;
+  position: fixed;
+  background-color: #f44336;
+}
+
+#nav *{color: white;}
+#IzbornikDugme{display: none;}
+
+a.IzbornikStavka{
+  text-decoration: none;
+  display: block;
+  padding: 8px 16px;
+}
+
+.Kontejner{width: 95%;}
+.Kontejner > p{margin-bottom: 10px;}
+
+#wrapper{
+  width: 80%;
+ margin-left: 20%;
+ padding-top: 10%;
+ padding-left: 5%;
+}
+
+img{max-height: 205px;}
+#forPicture{display: flex;}
+#zaPng{border: 1px solid black;}
+#wrapperZaSliku{ width: 18%;margin: 5px;}
+#zaTxt{background-color: rgb(241, 241, 241);}
+
+#zaTxt > button{ margin-left: 60px;background-color: white;border: none;}
+
+input{
+  display: block;
+  width: 100%;
+  height: 30px;
+  margin-bottom: 10px;
+}
+#poruka{
+  width: 100%;
+  height: 60px;
+}
+.BtnSend{
+  width: 100%;
+  background-color: #f44336;
+  color: black;
+  height: 30px;
+}
+@media screen and (max-width: 800px){
+ 
+  #nav{
+    width: 100%;
+    max-height: 60px;
+    position: static;
+    overflow: hidden;
+    transition: 1s;
+  }
+
+  #IzbornikDugme{display: inline;cursor: pointer;}
+  a.IzbornikStavka{text-align: center;border-bottom: 1px solid white;}
+  #Izbornik{background-color: rgb(235, 143, 143);margin: 10px; }
+
+  #wrapper{
+    width: 100%;
+    margin-left: 0;
+    padding-top: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  #forPicture{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #wrapperZaSliku{ width: 50%;margin: 5px;}
+  #zaTxt{width: fit-content;width: 80%;}
+
+}
