@@ -52,7 +52,7 @@ makeRedove = (data) => {
 <div id="zaTxt">
 <h3>${data.imePrezime}</h3>
 <p>${data.opis}</p>
-<button class="buttonSend">Piši poruku</button>
+<button class="buttonSend" onclick="UpisiIme(${data.id})">Piši poruku</button>
 </div>
 </div>`
 }
@@ -65,13 +65,24 @@ get4student = () => {
                 document.querySelector("#forPicture").innerHTML += makeRedove(data[i]);
                 allStudents = data;
             }
-            addClickListeners();//zanemari
         })
         .catch(err => console.log(err));
 }
 get4student();
 
 
+//2
+UpisiIme = (id) =>{
+    fetch('https://restapiexample.wrd.app.fit.ba/Ispit20210702/Get4Studenta')
+    .then(res => res.json()).then(data =>{
+        for(const i of data){
+            if (i.id==id) {
+                document.getElementById("primaoc").value = i.imePrezime;
+            }
+        }
+    })
+    .catch(err => console.log(err));
+}
 
 //3
 postSlanje = (e) => {
@@ -107,20 +118,8 @@ postSlanje = (e) => {
 provjeri = () => {
     fetch('https://restapiexample.wrd.app.fit.ba/Ispit20210702/Get')
         .then(res => res.json()).then(data => {
-            console.table(data);
+            console.log(data);
         })
         .catch(err => console.log(err));
 }
 provjeri();
-
-
-//zanemari
-let addClickListeners = () => {
-    let buttons = document.getElementsByClassName('buttonSend');
-    for (let i = 0; i < buttons.length; i++) {
-        const element = buttons[i];
-        element.addEventListener('click', () => {
-            console.log('test')
-        })
-    }
-}
