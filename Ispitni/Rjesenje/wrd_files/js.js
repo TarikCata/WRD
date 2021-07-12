@@ -22,12 +22,12 @@ fomrma.validate({
         },
         dostavaGrad: {
             required: true,
-            regex: /^[0-9]{5}$/
+            regex: /^[0-9]{5,}$/
         },
         //+111-11-111-1111
         dostavaTelefon: {
             required: true,
-            regex: /^[0-9]{1}$/
+            regex:/^\+[0-9]{3}-[0-9]{2}-[0-9]{3}-[0-9]{4}$/
         },
         messages: {
             dostavaIme: {
