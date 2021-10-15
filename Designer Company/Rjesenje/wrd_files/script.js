@@ -17,33 +17,30 @@ $.validator.addMethod(
   "Molim vas provjerite vaš unos!"
 );
 
-// var forma = $("#forma");
-// forma.validate({
-//   rules: {
-//     naslov: {
-//       required: true,
-//       regex: /^[A-Z]{1}[a-zA-Z ]+[a-zA-Z]+$/,
-//     },
-//     telefon: {
-//       required: true,
-//       // regex: /^\+[0-9]{3}-[0-9]{2}-[0-9]{3}-[0-9]{4}$/,
-//       regex: /^[0-9]{3}$/,
-//     },
-//     messages: {
-//       naslov: {
-//         required: "Ovo polje je obavezno",
-//         regex: "Prva dva slova moraju biti velika slova",
-//       },
-//       telefon: {
-//         required: "Ovo polje je obavezno",
-//         regex: "Treba biti u formatu:+111-11-111-1111",
-//       },
-//     },
-//   },
-// });
+var forma = $("#forma");
+forma.validate({
+  rules: {
+    naslov: {
+      required: true,
+      regex: /^[A-Z]{1}[a-zA-Z ]+[a-zA-Z]+$/,
+    },
+    telefon: {
+      required: true,
+      regex: /^\+[0-9]{3}-[0-9]{2}-[0-9]{3}-[0-9]{4}$/,
+    },
+    messages: {
+      naslov: {
+        required: "Ovo polje je obavezno",
+        regex: "Prva dva slova moraju biti velika slova",
+      },
+      telefon: {
+        required: "Ovo polje je obavezno",
+        regex: "Treba biti u formatu:+111-11-111-1111",
+      },
+    },
+  },
+});
 
-var allStudents;
-//1
 makeRedove = (data) => {
   const { slikaPutanja, imePrezime, opis, id } = data;
   return `<div id="wrapperZaSliku">
@@ -71,8 +68,7 @@ get4student = async () => {
 };
 get4student();
 
-//2
-UpisiIme = async (id) => {
+UpisiIme = (id) => {
   const urlName =
     "https://restapiexample.wrd.app.fit.ba/Ispit20210702/Get4Studenta";
   fetch(urlName)
@@ -87,42 +83,21 @@ UpisiIme = async (id) => {
     .catch((err) => console.log(err));
 };
 
-//3
 postSlanje = (e) => {
   e.preventDefault();
+  const postUrl = "https://restapiexample.wrd.app.fit.ba/Ispit20210702/Add";
   const data = {
     imePrezime: $("#primaoc").val(),
     naslov: $("#naslov").val(),
     poruka: $("#poruka").val(),
     telefon: $("#telefon").val(),
   };
-  fetch("https://restapiexample.wrd.app.fit.ba/Ispit20210702/Add", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  }).then((res) => {
-    if (res.status !== 200) {
-      console.log("palo");
-    }
-  });
-  res
-    .json()
-    .then((data) => {
-      alert("Poruka uspjesno poslana!");
-    })
-
-    .catch((err) => console.log(err));
-};
-
-//za provjeru da li je dodano preko post metode
-provjeri = () => {
-  fetch("https://restapiexample.wrd.app.fit.ba/Ispit20210702/Get")
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
+  fetch(postUrl, data)
+    .then((res) => {
+      if (res.status !== 200) {
+        console.log("Greska sa serverom");
+      }
+      alert("Poslano " + data);
     })
     .catch((err) => console.log(err));
 };
-provjeri();
