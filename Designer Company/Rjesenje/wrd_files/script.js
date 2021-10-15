@@ -17,29 +17,30 @@ $.validator.addMethod(
   "Molim vas provjerite vaš unos!"
 );
 
-var forma = $("#forma");
-forma.validate({
-  rules: {
-    naslov: {
-      required: true,
-      regex: /^[A-Z]{1}[a-zA-Z ]+[a-zA-Z]+$/,
-    },
-    telefon: {
-      required: true,
-      regex: /^\+[0-9]{3}-[0-9]{2}-[0-9]{3}-[0-9]{4}$/,
-    },
-    messages: {
-      naslov: {
-        required: "Ovo polje je obavezno",
-        regex: "Prva dva slova moraju biti velika slova",
-      },
-      telefon: {
-        required: "Ovo polje je obavezno",
-        regex: "Treba biti u formatu:+111-11-111-1111",
-      },
-    },
-  },
-});
+// var forma = $("#forma");
+// forma.validate({
+//   rules: {
+//     naslov: {
+//       required: true,
+//       regex: /^[A-Z]{1}[a-zA-Z ]+[a-zA-Z]+$/,
+//     },
+//     telefon: {
+//       required: true,
+//       // regex: /^\+[0-9]{3}-[0-9]{2}-[0-9]{3}-[0-9]{4}$/,
+//       regex: /^[0-9]{3}$/,
+//     },
+//     messages: {
+//       naslov: {
+//         required: "Ovo polje je obavezno",
+//         regex: "Prva dva slova moraju biti velika slova",
+//       },
+//       telefon: {
+//         required: "Ovo polje je obavezno",
+//         regex: "Treba biti u formatu:+111-11-111-1111",
+//       },
+//     },
+//   },
+// });
 
 var allStudents;
 //1
@@ -55,23 +56,26 @@ makeRedove = (data) => {
 </div>`;
 };
 
-get4student = () => {
-  fetch("https://restapiexample.wrd.app.fit.ba/Ispit20210702/Get4Studenta")
-    .then((res) => res.json())
-    .then((data) => {
-      console.table(data);
-      for (const i in data) {
-        document.querySelector("#forPicture").innerHTML += makeRedove(data[i]);
-        allStudents = data;
-      }
-    })
-    .catch((err) => console.log(err));
+get4student = async () => {
+  try {
+    const response = await fetch(
+      "https://restapiexample.wrd.app.fit.ba/Ispit20210702/Get4Studenta"
+    );
+    const data = await response.json();
+    for (const i in data) {
+      document.querySelector("#forPicture").innerHTML += makeRedove(data[i]);
+    }
+  } catch (error) {
+    console.log(error);
+  }
 };
 get4student();
 
 //2
-UpisiIme = (id) => {
-  fetch("https://restapiexample.wrd.app.fit.ba/Ispit20210702/Get4Studenta")
+UpisiIme = async (id) => {
+  const urlName =
+    "https://restapiexample.wrd.app.fit.ba/Ispit20210702/Get4Studenta";
+  fetch(urlName)
     .then((res) => res.json())
     .then((data) => {
       for (const i of data) {
@@ -87,11 +91,9 @@ UpisiIme = (id) => {
 postSlanje = (e) => {
   e.preventDefault();
   const data = {
-    id: allStudents.id,
     imePrezime: $("#primaoc").val(),
     naslov: $("#naslov").val(),
     poruka: $("#poruka").val(),
-    datumVrijeme: allStudents.datumVrijeme,
     telefon: $("#telefon").val(),
   };
   fetch("https://restapiexample.wrd.app.fit.ba/Ispit20210702/Add", {
@@ -108,7 +110,7 @@ postSlanje = (e) => {
   res
     .json()
     .then((data) => {
-      console.log(data);
+      alert("Poruka uspjesno poslana!");
     })
 
     .catch((err) => console.log(err));
