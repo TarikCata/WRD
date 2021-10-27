@@ -1,84 +1,126 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-html,body{
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+#glavni {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+#lijevo {
+  width: 50%;
+  height: 100%;
+  overflow: scroll;
+  background-color: black;
+  color: white;
+}
+.glavno {
+  text-align: center;
+}
+#formaneka {
+  padding: 3%;
+}
+#forma > input {
+  display: block;
+  background-color: black;
+  border: none;
+  border-bottom: 2px solid blue;
+  width: 100%;
+  color: white;
+}
+.tableispod {
+  padding: 3%;
+}
+textarea {
+  background-color: black;
+  color: white;
+  height: 20px;
+  border-bottom: 2px solid blue;
+}
+#desno {
+  width: 50%;
+  height: 100%;
+}
+#filtiranje,
+#filtiranje1,
+#filtiranje2 {
+  display: none;
+}
+#gornji {
+  height: 50%;
+  width: 100%;
+  background-image: url("../img/slika.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  font-size: large;
+}
+#dugme {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+nav {
+  padding: 3%;
+  width: 25%;
+  height: 100%;
+  background-color: rgb(34, 34, 194);
+  opacity: 0.5;
+}
+
+a.IzbornikStavka {
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+}
+a.IzbornikStavka:hover {
+  background-color: white;
+  color: rgb(34, 34, 194);
+  width: 60%;
+  transition: 0.4s ease-out;
+}
+.footer {
+  text-align: center;
+}
+
+.donji {
+  overflow: scroll;
+  height: 50%;
+}
+
+.error {
+  color: red;
+}
+@media only screen and (max-width: 600px) {
+  #glavni {
+    flex-direction: column-reverse;
+  }
+  #lijevo {
     width: 100%;
-    height: 100%;
-}
-#glavni{
-    display: flex;
+  }
+  #desno {
     width: 100%;
-    height: 100%;
-}
-#lijevo{
-    width: 50%;
-    height: 100%;
-    overflow: scroll;
-    background-color: black;
-    color: white;
-}
-.glavno{text-align: center;}
-#formaneka{padding: 3%;}
-#forma > input{
-    display: block;
-    background-color: black;
-    border: none;
-    border-bottom: 2px solid blue;
-    width: 100%;
-    color: white;
-}
-.tableispod{padding: 3%;}
-textarea{
-    background-color: black;
-    color: white;
-    height: 20px;
-    border-bottom: 2px solid blue;
-}
-#desno{
-    width: 50%;
-    height: 100%;
-}
-#filtiranje,#filtiranje1,#filtiranje2{display: none;}
-#gornji{
-    height: 50%;
-    width: 100%;
-    background-image: url(/img/slika.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: white;
-    font-size: large;
-}
-nav{
-    padding: 3%;
-    width: 25%;
+  }
+  #gornji {
     height: 100%;
     background-color: rgb(34, 34, 194);
     opacity: 0.5;
-}
-
-a.IzbornikStavka{
-    display: block;
-    text-decoration: none;
-    color: white;
-    padding: 10px;
-}
-a.IzbornikStavka:hover{background-color: blue;opacity: 0.5;width: 50%;}
-.footer{text-align: center;}
-
-.error{color: red;}
-@media only screen and (max-width:600px)
-{
-    #glavni{ flex-direction: column-reverse;}
-    #lijevo{width: 100%;}
-    #desno{width: 100%;}
-    #gornji{height: 100%; background-color: rgb(34, 34, 194);opacity: 0.5;}
-    nav{width: 100%;}
-    a.IzbornikStavka{
-        display: inline;
-        padding: 5px;
-        margin-left: 40px;
-    }
-    .donji{display: none;}
+  }
+  nav {
+    width: 100%;
+  }
+  a.IzbornikStavka {
+    display: inline;
+    padding: 5px;
+    margin-left: 40px;
+  }
+  .donji {
+    display: none;
+  }
 }

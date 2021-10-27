@@ -56,7 +56,7 @@
             <div id="zaTxt">
               <h3>Elmir Babovic</h3>
               <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-              <button class="buttonSend" onclick="Upisiime(id)">Piši poruku</button>
+              <button class="buttonSend" onclick="UpisiIme(id)">Piši poruku</button>
             </div>
           </div>
         </div>
@@ -67,10 +67,10 @@
           <h2>Piši poruku.</h2>
           <hr />
           <p>Ovdje napišite sadržaj poruke</p>
-          <form id="forma" onsubmit="postSlanje()">
+          <form id="forma" onsubmit="postSlanje(e)">
             <div>
               <label>Primaoc</label>
-              <input id="primaoc"  required="" type="text" value="Elmir Babovic" disabled/>
+              <input id="primaoc" required="" type="text" value="Elmir Babovic" disabled />
             </div>
             <div>
               <label>Naslov</label>
@@ -85,7 +85,7 @@
               <textarea id="poruka" required=""></textarea>
             </div>
             <!-- <button class="BtnSend" type="submit">Send Message</button> -->
-        <input type="submit" value="Send Message" class="BtnSend"/>
+            <input type="submit" value="Send Message" class="BtnSend" />
           </form>
         </div>
         <!-- End page content -->
