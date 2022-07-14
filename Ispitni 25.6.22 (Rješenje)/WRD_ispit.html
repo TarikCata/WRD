@@ -6,6 +6,7 @@
     <title>WRD Ispit</title>
     <link href="style.css" rel="stylesheet" />
     <script src="./external/jquery/jquery.js"></script>
+    <script src="./jquery-validation-1.16.0/dist/jquery.validate.js"></script>
   </head>
 
   <body>
@@ -40,21 +41,10 @@
           <p class="subtitle">Check out our top-rated tours</p>
         </div>
 
-        <div id="destinacije" class="offers-container">
-          <!-- <article class="offer">
-                    <img src="images/box-offer-01.jpg" alt="offer" />
-                    <div class="offer-details">
-                        <div class="cijena-naziv">
-                            <h4 class="offer-destination">Turkey</h4>
-                            <h3 class="offer-price">$2,000</h3>
-                        </div>
-                    </div>
-                    <div class="ponudaa"><button class="ponuda-dugme">Odaberi ponudu</button></div>
-                </article> -->
-        </div>
+        <div id="destinacije" class="offers-container"></div>
       </section>
 
-      <div id="contact-form">
+      <form id="contact-form">
         <div class="sve">
           <div class="prvi">
             <label for="message">Destinacija</label> <br />
@@ -64,21 +54,21 @@
             <div class="ime-prezime">
               <div class="ime">
                 <label for="first-name">First name</label><br />
-                <input type="text" id="first-name" />
+                <input name="ime" type="text" id="first-name" />
               </div>
               <div class="prezime">
                 <label for="email">E-mail</label><br />
-                <input type="email" id="email" />
+                <input name="email" type="email" id="email" />
               </div>
             </div>
             <div class="mail-phone">
               <div class="maile">
                 <label for="last-name">Last name</label><br />
-                <input type="text" id="last-name" />
+                <input name="lastName" type="text" id="last-name" />
               </div>
               <div class="fon">
                 <label for="phone">Phone</label><br />
-                <input type="tel" id="phone" />
+                <input name="phone" type="tel" id="phone" />
               </div>
             </div>
           </div>
@@ -88,7 +78,7 @@
           </div>
           <button onclick="posalji()" class="button">Send</button>
         </div>
-      </div>
+      </form>
     </main>
 
     <footer>
